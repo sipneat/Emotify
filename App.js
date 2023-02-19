@@ -26,10 +26,17 @@ export default class App extends React.Component {
       return(
         <MainPage onSubmit = { () => this.change("page2")}/>
       );
-    }else if (this.state.pageProp == 'page2'){
+    }else if (this.state.pageProp === 'page2'){
       return (
         <SecondPage onSubmit = {() => this.change.bind("page3")}/>
         );
+    }
+    else {
+      return(
+        <View>
+          <SecondPage onSubmit = {() => this.change("main")}/>
+        </View>
+      );
     }
   }
 }

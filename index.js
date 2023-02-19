@@ -69,17 +69,6 @@ export default class App extends React.Component {
       </View>
     );
   }
-/* button and increment
-        <Text>
-          Counter: {this.state.counter}
-        </Text>
-
-        <Button title='Incremement counter' onPress={()=> this.increment()}/>
-
-        <Card name = 'button 1 :(' color = "green"/>
-        <Card name = 'button 2'/>
-        <Card name = 'button 3 !'/>
-*/
 
 }
 
