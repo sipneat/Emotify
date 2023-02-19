@@ -9,7 +9,7 @@ import Card from "./Card";
 
 export default class AppTwo extends React.Component {
 
-  constructor(props){
+  constructor(props){ 
     super(props);
     this.state = {text:"", text1:""};
     this.state = {counter: 0};
@@ -20,12 +20,19 @@ export default class AppTwo extends React.Component {
     return(
       <View style={styles.container}>
         <Text style = {styles.header}>
-          Pick how you want to feel!!
+          Pick how you want to feel!
+        </Text>
+
+        <Text style={styles.container}>
+          Here are some songs
         </Text>
 
         <Card name = 'mood one [angry]'/>
         <Card name = 'mood two [happy]'/>
         <Card name = 'mood three [sad]'/>
+        <Card openSpotify = 'Open in Spotify'/>
+        <Card openAppleMusic = 'Open in Apple Music'/>
+
       </View>
     );
   }
