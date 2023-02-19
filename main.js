@@ -44,7 +44,7 @@ export default class App extends React.Component {
           value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}/>
       
       <Text>
-        Thank you for sharing that. Press next to generate your playlist.
+        Thank you for sharing that. Press Finish to generate your playlist.
       </Text>
         String name = "";
         <Button title= 'Submit' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
