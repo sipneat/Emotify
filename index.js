@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry, ImageBackground } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry, ImageBackground, FlatList } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
@@ -10,43 +10,41 @@ AppRegistry.registerComponent('Emotify', () => App);
 
 export default class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {text2: []};
-    this.state = {counter: 0};
-    //this.state = 
-  }
-
-  async getAPI() {
-    try {
-      const response = await fetch('http://10.0.2.2:3000/api');
-      const json = await response.json();
-      this.setState({text2: json.message})
-    } catch (error) {
-      console.error(error);
-    }
+    this.state = {dataSource: null}
   }
 
   componentDidMount() {
-    this.getAPI();
+
+    fetch('https://facebook.github.io/react-native/movies.json')
+    .then( res => res.json())
+    .then(json => {
+      this.setState({
+        dataSource: json.movies,
+      })
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
-  increment() {
-    this.setState(state => ({
-      counter: state.counter + 1
-    }));
-  }
+render() {
+  let movies = this.state.dataSource.map((val, key) => {
+    return <View key={key}>
+      <Text>{val.title}</Text>
+    </View> 
+  });
 
-  render() {
-    const text2 = this.state;
-    return (
+  return (
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
       <View style={styles.container}>
       <ImageBackground source={require('./assets/sparkle.png')} resizeMode="cover" style={styles.image}>
       </ImageBackground>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
-      <Text >
+      <Text>
         Welcome to Emotify!
         {'\n'}
         {'\n'}
@@ -58,14 +56,8 @@ export default class App extends React.Component {
         Any answer you choose is beautiful.
   
         Thank you for sharing that. Press next to generate your playlist.
-      </Text>
-
-        <Button title='Submit' style={styles.paragraph} />
-
-        <Text text2={text2}>
-          API cal: {text2.message}
         </Text>
-
+      <View>{movies}</View>
       </View>
     );
   }
@@ -80,7 +72,6 @@ export default class App extends React.Component {
         <Card name = 'button 2'/>
         <Card name = 'button 3 !'/>
 */
-
 }
 
 const styles = StyleSheet.create({
