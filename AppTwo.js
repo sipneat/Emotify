@@ -1,0 +1,65 @@
+import * as React from 'react';
+import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
+import Card from "./Card";
+
+//import { View, Text } from 'react-native';
+//import { NavigationContainer } from '@react-navigation/native';
+//import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+export default class AppTwo extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {text:"", text1:""};
+    this.state = {counter: 0};
+    //this.state = 
+  }
+
+  render(){
+    return(
+      <View style={styles.container}>
+        <Text style = {styles.header}>
+          Pick how you want to feel!!
+        </Text>
+
+        <Card name = 'mood one [angry]'/>
+        <Card name = 'mood two [happy]'/>
+        <Card name = 'mood three [sad]'/>
+      </View>
+    );
+  }
+
+  
+}
+const styles = StyleSheet.create({
+  header: {
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: 'center',
+    margin: 24,
+  },
+  input: {
+    borderWidth: 1,
+    height: 30,
+    margin: 20,
+    paddingLeft: 10,
+    borderRadius: 100000,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    padding: 8,
+  },
+  paragraph: {
+    fontSize: 18,
+    textAlign: 'center',
+
+  },
+  logo: {
+    justifyContent: 'center',
+    height: 128,
+    width: 300,
+  }
+});
