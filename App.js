@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MainPage from './main.js';
+import MainPage from './index.js';
 import SecondPage from './AppTwo.js'
 import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
 import Card from "./Card";

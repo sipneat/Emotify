@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
 //import { NavigationContainer } from '@react-navigation/native';
 //import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+AppRegistry.registerComponent('Emotify', () => App);
 
 export default class App extends React.Component {
 
