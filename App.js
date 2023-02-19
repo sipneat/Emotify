@@ -34,6 +34,9 @@ export default class App extends React.Component {
     else {
       return(
         <View>
+          <Text>
+          Music can help us connect with our own feelings, and this is always best paired with some “Me Time”. So while you listen to these songs, maybe go for a walk and look at the cool leaves, or try to draw a portrait of your best friend. We have all felt negative emotions, and you are not, and never will be alone.
+          </Text>
           <SecondPage onSubmit = {() => this.change("main")}/>
         </View>
       );
