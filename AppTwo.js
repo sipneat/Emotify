@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput,BackgroundImage } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
@@ -19,17 +19,19 @@ export default class AppTwo extends React.Component {
   render(){
     return(
       <View style={styles.container}>
-        <Text style = {styles.header}>
-          Pick how you want to feel!
-        </Text>
 
-        <Text style={styles.container}>
-          Here are some songs
+      <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
+      </ImageBackground>
+
+        <Text style={styles.header}>
+          Here is the list of songs that should resonate with your feelings.
+          {'\n'}
+          {'\n'}
         </Text>
 
         <Card name = 'mood one [angry]'/>
         <Card name = 'mood two [happy]'/>
-        <Card name = 'mood three [sad]'/>
+        <Card moreInfo = 'More Information'/>
         <Card openSpotify = 'Open in Spotify'/>
         <Card openAppleMusic = 'Open in Apple Music'/>
 
@@ -63,6 +65,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
 
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
   },
   logo: {
     justifyContent: 'center',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry, BackgroundImage } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
@@ -23,12 +23,13 @@ export default class App extends React.Component {
     }));
   }
 
-
   render() {
     return (
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
       <View style={styles.container}>
+      <ImageBackground source={require('./assets/sparkle.png')} resizeMode="cover" style={styles.image}>
+      </ImageBackground>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
       <Text >
         Welcome to Emotify!
@@ -37,33 +38,18 @@ export default class App extends React.Component {
         Music is an important part of mental health, and sometimes a playlist curated to your mood is the perfect remedy to a bad day.
         {'\n'}
         {'\n'}
-      </Text>
-      
-      <TextInput placeholder="Enter your Spotify Username" style={styles.input}
-          value={this.state.text} onChangeText = {(text) => this.setState({text: text})}
-        />
-        <Text>
-          You entered: {this.state.text}
-        </Text>        
-
-
-        <TextInput placeholder="Enter your Spotify Password" style={styles.input}
-          value={this.state.text1} onChangeText = {(text1) => this.setState({text1: text1})}
-        />
-        <Text>
-          You entered: {this.state.text1}
-        </Text>        
-
-      <Text>
-        How are you feeling?
+        I would like to know what brings you here today.
+        How are you feeling at the moment? 
+        Any answer you choose is beautiful.
       </Text>
 
         <TextInput placeholder="Enter a short description of your mood" style={styles.input}
           value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}
         />
-        <Text>
-          You entered: {this.state.text2}
-        </Text>  
+      
+      <Text>
+        Thank you for sharing that. Press next to generate your playlist.
+      </Text>
 
         <Button title='Submit' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
 
@@ -93,6 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     textAlign: 'center',
+    fontFamily: 'verdana',
     margin: 24,
   },
   input: {
@@ -112,6 +99,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
 
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
   },
   logo: {
     justifyContent: 'center',
