@@ -41,7 +41,7 @@ render() {
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
       <View style={styles.container}>
-      <ImageBackground source={require('./assets/sparkle.png')} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
       </ImageBackground>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
       <Text>

@@ -28,8 +28,12 @@ export default class App extends React.Component {
       );
     }else if (this.state.pageProp === 'page2'){
       return (
+        <View>
         <SecondPage onSubmit = {() => this.change.bind("page3")}/>
-        
+        <Text style={styles.paragraph}>
+          Music can help us connect with our feelings, and this is always best paired with some "me time", so while you listen to these songs, maybe go for a walk or do some drawing. We all have felt negative emotions, and you are not, and never will be, alone.
+        </Text>
+        </View>
         );
     }
     else {
