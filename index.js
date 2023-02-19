@@ -12,9 +12,23 @@ export default class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {text:"", text1:""};
+    this.state = {text2: []};
     this.state = {counter: 0};
     //this.state = 
+  }
+
+  async getAPI() {
+    try {
+      const response = await fetch('http://10.0.2.2:3000/api');
+      const json = await response.json();
+      this.setState({text2: json.message})
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  componentDidMount() {
+    this.getAPI();
   }
 
   increment() {
@@ -24,6 +38,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    const text2 = this.state;
     return (
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
@@ -41,20 +56,14 @@ export default class App extends React.Component {
         I would like to know what brings you here today.
         How are you feeling at the moment? 
         Any answer you choose is beautiful.
-      </Text>
-
-        <TextInput placeholder="Enter a short description of your mood" style={styles.input}
-          value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}
-        />
-      
-      <Text>
+  
         Thank you for sharing that. Press next to generate your playlist.
       </Text>
 
-        <Button title='Submit' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
+        <Button title='Submit' style={styles.paragraph} />
 
-        <Text>
-          Counter: {this.state.counter}
+        <Text text2={text2}>
+          API cal: {text2.message}
         </Text>
 
       </View>
