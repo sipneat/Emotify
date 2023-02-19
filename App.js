@@ -17,19 +17,50 @@ export default class App extends React.Component {
     //this.state = 
   }
 
-  change(){
-    this.setState({pageProp: 'AppTwo'})
+  change(page){
+    this.setState({pageProp: page})
   }
 
   render() {
     if(this.state.pageProp === 'main'){
       return(
-        <MainPage onSubmit = { this.change.bind(this)}/>
+        <MainPage onSubmit = { () => this.change("page2")}/>
       );
-    }else{
+    }else if (this.state.pageProp == 'page2'){
       return (
-        <SecondPage onSubmit = {this.change.bind(this)}/>
+        <SecondPage onSubmit = {() => this.change.bind("page3")}/>
         );
     }
   }
 }
+
+const styles = StyleSheet.create({
+  header: {
+    fontSize: 30,
+    fontWeight:"bold",
+    textAlign: 'center',
+    margin: 24,
+  },
+  input: {
+    borderWidth: 1,
+    height: 30,
+    margin: 20,
+    paddingLeft: 10,
+    borderRadius: 100000,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    padding: 8,
+  },
+  paragraph: {
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  logo: {
+    justifyContent: 'center',
+    height: 128,
+    width: 300,
+  }
+})
