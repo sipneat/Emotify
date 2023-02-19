@@ -10,33 +10,7 @@ AppRegistry.registerComponent('Emotify', () => App);
 
 export default class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {dataSource: null}
-  }
-
-  componentDidMount() {
-
-    fetch('https://facebook.github.io/react-native/movies.json')
-    .then( res => res.json())
-    .then(json => {
-      this.setState({
-        dataSource: json.movies,
-      })
-    })
-
-    .catch((error) => {
-      console.log(error);
-    });
-  }
-
-render() {
-  let movies = this.state.dataSource.map((val, key) => {
-    return <View key={key}>
-      <Text>{val.title}</Text>
-    </View> 
-  });
-
+  render() {
   return (
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
@@ -57,7 +31,6 @@ render() {
   
         Thank you for sharing that. Press next to generate your playlist.
         </Text>
-      <View>{movies}</View>
       </View>
     );
   }
