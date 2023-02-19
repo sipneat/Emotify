@@ -19,12 +19,11 @@ export default class AppTwo extends React.Component {
   render(){
     return(
       <View style={styles.container}>
-        <Text style = {styles.header}>
-          Pick how you want to feel!
-        </Text>
-
-        <Text style={styles.container}>
-          Here are some songs
+        
+        <Text style={styles.header}>
+          Here is the list of songs that should resonate with your feelings.
+          {'\n'}
+          {'\n'}
         </Text>
 
         <Card name = 'mood one [angry]'/>
