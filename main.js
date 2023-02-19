@@ -21,36 +21,33 @@ export default class App extends React.Component {
     }));
   }
 
+
   render() {
     return (
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
-      <View style={styles.container}>
-      <ImageBackground source={require('./assets/sparkle.png')} resizeMode="cover" style={styles.image}>
+      <View style={styles.container}> 
+      <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
       </ImageBackground>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
       <Text >
         Welcome to Emotify!
         {'\n'}
-        {'\n'}
         Music is an important part of mental health, and sometimes a playlist curated to your mood is the perfect remedy to a bad day.
-        {'\n'}
         {'\n'}
         I would like to know what brings you here today.
         How are you feeling at the moment? 
         Any answer you choose is beautiful.
       </Text>
 
-        <TextInput placeholder="Enter a short description of your mood" style={styles.input}
-          value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}
-        />
+      <TextInput placeholder="Enter a short description of your mood" style={styles.input}
+          value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}/>
       
       <Text>
         Thank you for sharing that. Press next to generate your playlist.
       </Text>
-
-        <Button title='Submit' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
-
+        String name = "";
+        <Button title= 'Submit' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
         <Text>
           Counter: {this.state.counter}
         </Text>

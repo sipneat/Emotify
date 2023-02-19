@@ -40,6 +40,8 @@ export default class AppTwo extends React.Component {
         <Card openAppleMusic = 'Open in Apple Music'/>
 
         <Button title = 'More Info' style = {this.styles.paragraph} onPress = {() => this.props.onSubmit()} color = {'#1ad75e'}/>
+        <Button title= 'Test' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
+
       </View>
     );
       } else {
