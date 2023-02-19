@@ -13,15 +13,19 @@ export default class AppTwo extends React.Component {
     super(props);
     this.state = {text:"", text1:""};
     this.state = {counter: 0};
-    //this.state = 
+    this.state = {pageProp:' AppTwo'};
+  }
+
+  change(){
+    this.setState({pageProp: 'AppTwo'})
   }
 
   render(){
-    return(
-      <View style={styles.container}>
-
-      <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
-      </ImageBackground>
+    if (this.state.pageProp === 'AppTwo'){
+      return(
+        <View style={styles.container}>
+        <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
+        </ImageBackground>
 
         <Text style={styles.header}>
           Here is the list of songs that should resonate with your feelings.
@@ -35,12 +39,21 @@ export default class AppTwo extends React.Component {
         <Card openSpotify = 'Open in Spotify'/>
         <Card openAppleMusic = 'Open in Apple Music'/>
 
+        <Button title = 'More Info' style = {this.styles.paragraph} onPress = {() => this.props.onSubmit()} color = {'#1ad75e'}/>
+        <Button title= 'Test' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
+
       </View>
     );
+      } else {
+        return (
+          <ThirdPage onSubmit = {this.change.bind(this)}/>
+        );
+      
+      }
   }
-
-  
 }
+  
+
 const styles = StyleSheet.create({
   header: {
     fontSize: 30,

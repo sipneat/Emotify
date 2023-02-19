@@ -1,63 +1,57 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry, ImageBackground, FlatList } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput, BackgroundImage } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
 //import { NavigationContainer } from '@react-navigation/native';
 //import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-AppRegistry.registerComponent('Emotify', () => App);
-
 export default class App extends React.Component {
 
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = {dataSource: null}
+    this.state = {text:"", text1:""};
+    this.state = {counter: 0};
+    //this.state = 
   }
 
-  componentDidMount() {
-
-    fetch('https://facebook.github.io/react-native/movies.json')
-    .then( res => res.json())
-    .then(json => {
-      this.setState({
-        dataSource: json.movies,
-      })
-    })
-
-    .catch((error) => {
-      console.log(error);
-    });
+  increment() {
+    this.setState(state => ({
+      counter: state.counter + 1
+    }));
   }
 
-render() {
-  let movies = this.state.dataSource.map((val, key) => {
-    return <View key={key}>
-      <Text>{val.title}</Text>
-    </View> 
-  });
 
-  return (
+  render() {
+    return (
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
-      <View style={styles.container}>
-      <ImageBackground source={require('./assets/sparkle.png')} resizeMode="cover" style={styles.image}>
+      <View style={styles.container}> 
+      <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
       </ImageBackground>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
-      <Text>
+      <Text >
         Welcome to Emotify!
         {'\n'}
-        {'\n'}
         Music is an important part of mental health, and sometimes a playlist curated to your mood is the perfect remedy to a bad day.
-        {'\n'}
         {'\n'}
         I would like to know what brings you here today.
         How are you feeling at the moment? 
         Any answer you choose is beautiful.
-  
+      </Text>
+
+      <TextInput placeholder="Enter a short description of your mood" style={styles.input}
+          value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}/>
+      
+      <Text>
         Thank you for sharing that. Press next to generate your playlist.
+      </Text>
+        String name = "";
+        <Button title= 'Submit' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
+        <Text>
+          Counter: {this.state.counter}
         </Text>
-      <View>{movies}</View>
+
       </View>
     );
   }
