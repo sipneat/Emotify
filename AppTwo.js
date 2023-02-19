@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput,BackgroundImage } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
@@ -19,6 +19,9 @@ export default class AppTwo extends React.Component {
   render(){
     return(
       <View style={styles.container}>
+
+      <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
+      </ImageBackground>
 
         <Text style={styles.header}>
           Here is the list of songs that should resonate with your feelings.
@@ -62,6 +65,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
 
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
   },
   logo: {
     justifyContent: 'center',

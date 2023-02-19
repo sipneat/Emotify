@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput, BackgroundImage } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
@@ -21,14 +21,13 @@ export default class App extends React.Component {
     }));
   }
 
-  //const image = {uri: 'https://reactjs.org/logo-og.png'};
-
-
   render() {
     return (
       //why is this button not a card but a real button??
       // why can i not put name in between a start and a end card thingie???
       <View style={styles.container}>
+      <ImageBackground source={require('./assets/sparkle.png')} resizeMode="cover" style={styles.image}>
+      </ImageBackground>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
       <Text >
         Welcome to Emotify!
@@ -98,6 +97,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
 
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
   },
   logo: {
     justifyContent: 'center',
