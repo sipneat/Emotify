@@ -29,6 +29,7 @@ export default class App extends React.Component {
     }else if (this.state.pageProp === 'page2'){
       return (
         <SecondPage onSubmit = {() => this.change.bind("page3")}/>
+        
         );
     }
     else {
