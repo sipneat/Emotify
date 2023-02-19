@@ -33,7 +33,7 @@ export default class App extends React.Component {
       <Text >
         Welcome to Emotify!
         {'\n'}
-        Music is an important part of mental health, and sometimes a playlist curated to your mood is the perfect remedy to a bad day.
+        Music is an important part of mental health, and sometimes a playlist curated to your current mood is the perfect remedy to a bad day.
         {'\n'}
         I would like to know what brings you here today.
         How are you feeling at the moment? 
