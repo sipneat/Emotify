@@ -29,9 +29,16 @@ export default class App extends React.Component {
       // why can i not put name in between a start and a end card thingie???
       <View style={styles.container}>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
-
+      <Text >
+        Welcome to Emotify!
+        {'\n'}
+        {'\n'}
+        Music is an important part of mental health, and sometimes a playlist curated to your mood is the perfect remedy to a bad day.
+        {'\n'}
+        {'\n'}
+      </Text>
       
-        <TextInput placeholder="Enter your Spotify Username" style={styles.input}
+      <TextInput placeholder="Enter your Spotify Username" style={styles.input}
           value={this.state.text} onChangeText = {(text) => this.setState({text: text})}
         />
         <Text>
@@ -46,8 +53,11 @@ export default class App extends React.Component {
           You entered: {this.state.text1}
         </Text>        
 
+      <Text>
+        How are you feeling?
+      </Text>
 
-        <TextInput placeholder="How are you feeling?" style={styles.input}
+        <TextInput placeholder="Enter a short description of your mood" style={styles.input}
           value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}
         />
         <Text>
