@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry, BackgroundImage } from 'react-native';
+import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry, ImageBackground } from 'react-native';
 import Card from "./Card";
 
 //import { View, Text } from 'react-native';
