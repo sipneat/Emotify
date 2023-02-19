@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MainPage from './index.js';
+import MainPage from './index';
 import SecondPage from './AppTwo.js'
 import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
 export default class App extends React.Component {
@@ -21,20 +21,24 @@ export default class App extends React.Component {
       );
     }else if (this.state.pageProp ==='page2'){
       return (
-        <View>
-        <SecondPage onSubmit = {() => this.change.bind("page3")}/>
-        <Text style={styles.paragraph}>
-          Music can help us connect with our feelings, and this is always best paired with some "me time", so while you listen to these songs, maybe go for a walk or do some drawing. We all have felt negative emotions, and you are not, and never will be, alone.
-        </Text>
-        </View>
+        <SecondPage onSubmit = {() => this.change("page3")}/>
         );
     } else{
       return (
         <View>
+
           <Text style = {styles.header}>
-              dont be depressed
+              Music can help us connect with our own feelings, and this is always best paired with some “Me Time”. So while you listen to these songs, maybe go for a walk and look at some cool leaves, or try to draw a portrait of your best friend. We have all felt negative emotions, and you are not, and never will be alone.
+              
+          Below are your songs:
+
+
+
+
+
           </Text>
-          <SecondPage onSubmit = {() => this.change("mainß")}/>
+
+          <SecondPage onSubmit = {() => this.change("main")}/>
           
         </View>
         //<SecondPage onSubmit = {() => this.change("main")}/>
@@ -44,32 +48,9 @@ export default class App extends React.Component {
 }
 const styles = StyleSheet.create({
   header: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: 'center',
     margin: 24,
   },
-  input: {
-    borderWidth: 1,
-    height: 30,
-    margin: 20,
-    paddingLeft: 10,
-    borderRadius: 100000,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-    padding: 8,
-  },
-  paragraph: {
-    fontSize: 18,
-    textAlign: 'center',
-
-  },
-  logo: {
-    justifyContent: 'center',
-    height: 128,
-    width: 300,
-  }
 });

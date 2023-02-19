@@ -17,24 +17,29 @@ export default class AppTwo extends React.Component {
         return(
           <View style={styles.container}>
           <Text style = {styles.header}>
-            Here r some songs for u baby!
+            Here are 5 happy songs that are proven to decrease cortisol levels and increase dopamine!
+          </Text>
+
+          <Text style = {styles.paragraph}>
+            Dont Stop Me Now - Queen
+            Dancing Queen - Abba
+            Good Vibrations - The Beach Boys
+            Uptown Girl - Billie Joel
+            Eye of The Tiger - Survivor
+            I will Survive - Gloria Gaynor
           </Text>
 
           <Button title='More Info' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
 
         </View>
       );
-    }else{
-      return (
-        <ThirdPage onSubmit = {this.change.bind(this)}/>
-        );
     }
   }
 }
 
 const styles = StyleSheet.create({
   header: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: 'center',
     margin: 24,
@@ -49,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#90EE90',
     padding: 8,
   },
   paragraph: {
