@@ -6,7 +6,6 @@ import Card from "./Card";
 //import { NavigationContainer } from '@react-navigation/native';
 //import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
 export default class App extends React.Component {
 
   constructor(props){
@@ -21,6 +20,8 @@ export default class App extends React.Component {
       counter: state.counter + 1
     }));
   }
+
+  //const image = {uri: 'https://reactjs.org/logo-og.png'};
 
 
   render() {
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     textAlign: 'center',
+    fontFamily: 'verdana',
     margin: 24,
   },
   input: {

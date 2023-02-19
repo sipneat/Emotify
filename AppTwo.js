@@ -19,7 +19,7 @@ export default class AppTwo extends React.Component {
   render(){
     return(
       <View style={styles.container}>
-        
+
         <Text style={styles.header}>
           Here is the list of songs that should resonate with your feelings.
           {'\n'}
@@ -28,7 +28,7 @@ export default class AppTwo extends React.Component {
 
         <Card name = 'mood one [angry]'/>
         <Card name = 'mood two [happy]'/>
-        <Card name = 'mood three [sad]'/>
+        <Card moreInfo = 'More Information'/>
         <Card openSpotify = 'Open in Spotify'/>
         <Card openAppleMusic = 'Open in Apple Music'/>
 
