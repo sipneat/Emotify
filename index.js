@@ -1,83 +1,28 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput, AppRegistry, ImageBackground } from 'react-native';
-import Card from "./Card";
-
-//import { View, Text } from 'react-native';
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-AppRegistry.registerComponent('Emotify', () => App);
+import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
 
 export default class App extends React.Component {
-
   constructor(props){
     super(props);
-    this.state = {text2: []};
-    this.state = {counter: 0};
-    //this.state = 
+    this.state = {text:"", text1:""};
   }
-
-  async getAPI() {
-    try {
-      const response = await fetch('http://10.0.2.2:3000/api');
-      const json = await response.json();
-      this.setState({text2: json.message})
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  componentDidMount() {
-    this.getAPI();
-  }
-
-  increment() {
-    this.setState(state => ({
-      counter: state.counter + 1
-    }));
-  }
-
   render() {
-    const text2 = this.state;
     return (
-      //why is this button not a card but a real button??
-      // why can i not put name in between a start and a end card thingie???
       <View style={styles.container}>
-      <ImageBackground source={require('./assets/sparkle.png')} resizeMode="cover" style={styles.image}>
-      </ImageBackground>
       <Image style={styles.logo} source={require('./assets/thing.png')} />
-      <Text >
-        Welcome to Emotify!
-        {'\n'}
-        {'\n'}
-        Music is an important part of mental health, and sometimes a playlist curated to your mood is the perfect remedy to a bad day.
-        {'\n'}
-        {'\n'}
-        I would like to know what brings you here today.
-        How are you feeling at the moment? 
-        Any answer you choose is beautiful.
-  
-        Thank you for sharing that. Press next to generate your playlist.
-      </Text>
-
-        <Button title='Submit' style={styles.paragraph} />
-
-        <Text text2={text2}>
-          API cal: {text2.message}
-        </Text>
-
+        <TextInput placeholder="How are you feeling?" style={styles.input}
+          value={this.state.text2} onChangeText = {(text2) => this.setState({text2: text2})}
+        />
+        <Button title='Submit' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
       </View>
     );
   }
-
 }
-
 const styles = StyleSheet.create({
   header: {
     fontSize: 30,
     fontWeight: "bold",
     textAlign: 'center',
-    fontFamily: 'verdana',
     margin: 24,
   },
   input: {
@@ -96,11 +41,6 @@ const styles = StyleSheet.create({
   paragraph: {
     fontSize: 18,
     textAlign: 'center',
-
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
   },
   logo: {
     justifyContent: 'center',
@@ -108,6 +48,52 @@ const styles = StyleSheet.create({
     width: 300,
   }
 });
+
+
+
+
+
+
+
+
+  
+ /*         <Text>
+          Counter: {this.state.counter}
+        </Text>
+
+                <Text>
+          You entered: {this.state.text2}
+        </Text>  
+*/ 
+/* button and increment
+        <Text>
+          Counter: {this.state.counter}
+        </Text>
+
+        <Button title='Incremement counter' onPress={()=> this.increment()}/>
+
+        <Card name = 'button 1 :(' color = "green"/>
+        <Card name = 'button 2'/>
+        <Card name = 'button 3 !'/>
+*/
+        /*
+        <TextInput placeholder="Enter your Spotify Username" style={styles.input}
+          value={this.state.text} onChangeText = {(text) => this.setState({text: text})}
+        />
+        <Text>
+          You entered: {this.state.text}
+        </Text>        
+
+
+        <TextInput placeholder="Enter your Spotify Password" style={styles.input}
+          value={this.state.text1} onChangeText = {(text1) => this.setState({text1: text1})}
+        />
+        <Text>
+          You entered: {this.state.text1}
+        </Text>        
+
+        */
+
 
 /* button and increment
         <Text>

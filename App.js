@@ -2,52 +2,45 @@ import * as React from 'react';
 import MainPage from './index.js';
 import SecondPage from './AppTwo.js'
 import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
-import Card from "./Card";
-
-//import { View, Text } from 'react-native';
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-
 export default class App extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {pageProp: 'main'};
-    //this.state = 
   }
 
   change(page){
     this.setState({pageProp: page})
+  
   }
 
   render() {
     if(this.state.pageProp === 'main'){
       return(
-        <MainPage onSubmit = { () => this.change("page2")}/>
+        <MainPage onSubmit = { () => this.change("page2") }/>
       );
-    }else if (this.state.pageProp === 'page2'){
+    }else if (this.state.pageProp ==='page2'){
       return (
-        <SecondPage onSubmit = {() => this.change.bind("page3")}/>
+        <SecondPage onSubmit = {() => this.change("page3")}/>
         );
-    }
-    else {
-      return(
+    } else{
+      return (
         <View>
-          <Text>
-          Music can help us connect with our own feelings, and this is always best paired with some “Me Time”. So while you listen to these songs, maybe go for a walk and look at the cool leaves, or try to draw a portrait of your best friend. We have all felt negative emotions, and you are not, and never will be alone.
+          <Text style = {styles.header}>
+              dont be depressed
           </Text>
-          <SecondPage onSubmit = {() => this.change("main")}/>
+          <SecondPage onSubmit = {() => this.change("mainß")}/>
+          
         </View>
+        //<SecondPage onSubmit = {() => this.change("main")}/>
       );
     }
   }
 }
-
 const styles = StyleSheet.create({
   header: {
     fontSize: 30,
-    fontWeight:"bold",
+    fontWeight: "bold",
     textAlign: 'center',
     margin: 24,
   },
@@ -67,10 +60,11 @@ const styles = StyleSheet.create({
   paragraph: {
     fontSize: 18,
     textAlign: 'center',
+
   },
   logo: {
     justifyContent: 'center',
     height: 128,
     width: 300,
   }
-})
+});

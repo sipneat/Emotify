@@ -1,58 +1,36 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image, TextInput,BackgroundImage } from 'react-native';
-import Card from "./Card";
-
-//import { View, Text } from 'react-native';
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { Text, View, StyleSheet, Button, Image, TextInput } from 'react-native';
 
 export default class AppTwo extends React.Component {
-
-  constructor(props){ 
+  constructor(props){
     super(props);
     this.state = {text:"", text1:""};
-    this.state = {counter: 0};
-    this.state = {pageProp:' AppTwo'};
+    this.state = {pageProp: 'AppTwo'};
   }
 
   change(){
     this.setState({pageProp: 'AppTwo'})
   }
 
-  render(){
-    if (this.state.pageProp === 'AppTwo'){
-      return(
-        <View style={styles.container}>
-        <ImageBackground source={require('./assets/background 1.png')} resizeMode="cover" style={styles.image}>
-        </ImageBackground>
+  render() {
+    if(this.state.pageProp === 'AppTwo'){
+        return(
+          <View style={styles.container}>
+          <Text style = {styles.header}>
+            Here r some songs for u baby!
+          </Text>
 
-        <Text style={styles.header}>
-          Here is the list of songs that should resonate with your feelings.
-          {'\n'}
-          {'\n'}
-        </Text>
+          <Button title='More Info' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
 
-        <Card name = 'mood one [angry]'/>
-        <Card name = 'mood two [happy]'/>
-        <Card moreInfo = 'More Information'/>
-        <Card openSpotify = 'Open in Spotify'/>
-        <Card openAppleMusic = 'Open in Apple Music'/>
-
-        <Button title = 'More Info' style = {this.styles.paragraph} onPress = {() => this.props.onSubmit()} color = {'#1ad75e'}/>
-        <Button title= 'Test' style={styles.paragraph} onPress={() => this.props.onSubmit()} color={'#1ad75e'}/>
-
-      </View>
-    );
-      } else {
-        return (
-          <ThirdPage onSubmit = {this.change.bind(this)}/>
+        </View>
+      );
+    }else{
+      return (
+        <ThirdPage onSubmit = {this.change.bind(this)}/>
         );
-      
-      }
+    }
   }
 }
-  
 
 const styles = StyleSheet.create({
   header: {
@@ -78,10 +56,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
 
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
   },
   logo: {
     justifyContent: 'center',
